@@ -44,24 +44,16 @@ const Login =  () => {
             <hr />
             <div className="sub-container">
                 <label htmlFor="email">email</label>
-                <input className=""
-                    id="email"
-                    type="text"
-                    name='email'
+                <input className="input-space" type="text" name='email' placeholder="email"
                     onChange={(e) => setUser({...user, email: e.target.value})}
-                    placeholder="email"
                 />
                 <label htmlFor="password">password</label>
-                <input className=""
-                    id="password"
-                    type="password"
-                    name="password"
+                <input className="input-space" type="password" name="password" placeholder="password"
                     onChange={(e) => setUser({...user, password: e.target.value})}
-                    placeholder="password"
                 />
                 <button onClick={onLogin} className="">{buttonDisabled ? "No signup" : "Login here"}
                 </button>
-                <Link href="/signup">Visit Signup page</Link>
+                <Link href="/signup" className="link-component">Visit Signup page</Link>
             </div>
         </div>
     )

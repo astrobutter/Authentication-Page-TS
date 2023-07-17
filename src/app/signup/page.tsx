@@ -21,11 +21,9 @@ export default function Home() {
       setLoading(true);
       const response = await axios.post("/api/signup", user);
       toast.success("Successfully Signed Up");
-      // console.log("Signup success", response.data);
       router.push("/login");
     } 
     catch (error: any) {
-      // console.log("Signup failed", error)
       toast.error(error.message);
     } 
     finally {
@@ -34,7 +32,6 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // console.log(user);
     if (user.email.length > 0 && user.password.length > 0 && user.username.length > 0) {
       setButtonDisabled(false);
     }
@@ -42,45 +39,30 @@ export default function Home() {
   }, [user]);
 
   return (
-      <div className='main-container'>
-        <div className='sub-container'>          
-          <h1>{loading ? "Processing" : "Signup"}</h1>
-          <hr />
+    <div className='main-container'>
+      <div className='sub-container'>
+        <h1>{loading ? "Processing" : "Signup"}</h1>
+        <hr />
 
-          <label htmlFor="username">username</label>
-          <input className=""
-              id="username"
-              type="text"
-              name="username"
-              onChange={(e) => setUser({...user, username: e.target.value})}
-              placeholder="username"
-              autoFocus
-          />
+        <label htmlFor="username">username</label>
+        <input className="input-space" type="text" name="username" placeholder="username"
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
+        />
 
-          <label htmlFor="email">email</label>
-          <input className=""
-              id="email"
-              type="text"
-              name='email'
-              onChange={(e) => setUser({...user, email: e.target.value})}
-              placeholder="email"
-              autoFocus
-          />
+        <label htmlFor="email">email</label>
+        <input className="input-space" type="text" name='email' placeholder="email"
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+        />
 
-          <label htmlFor="password">password</label>
-          <input className=""
-              id="password"
-              type="password"
-              name='password'
-              onChange={(e) => setUser({...user, password: e.target.value})}
-              placeholder="password"
-              autoFocus
-              />
-          <button onClick={onSignup} className="">
-            {buttonDisabled ? "No signup" : "Signup"}
-          </button>
-          <Link href="/login">Visit login page</Link>
-        </div>
+        <label htmlFor="password">password</label>
+        <input className="input-space" type="password" name='password' placeholder="password" autoFocus
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+        />
+        <button onClick={onSignup} >
+          {buttonDisabled ? "No signup" : "Signup"}
+        </button>
+        <Link href="/login" className="link-component">Visit login page</Link>
       </div>
+    </div>
   )
 }

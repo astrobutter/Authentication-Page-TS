@@ -27,10 +27,23 @@ export default function UserProfile({params}: any) {
     }
     return (
         <div className="main-container">
-            <p className="user-container">
-            <span className="">{user.username}</span>
-            </p>
-            <br/>
+            <h2>User Profile</h2>
+            <div className="user-data-container">
+                <div className="data-row">
+                    <label>UserName: </label>
+                    <span className="data-section">{user.username}</span>
+                </div>
+                <div className="data-row">
+                    <label>E-Mail: </label>
+                    <span className="data-section">{user.username}</span>
+                </div>
+                <div className="data-row">
+                    <label>User Id: </label>
+                    <span className="data-section">{user.id}</span>
+                </div>
+                    <span className="data-section">{user.id}</span>
+
+            </div>
             <button onClick={logout} className=" ">Logout</button>
 
             </div>
